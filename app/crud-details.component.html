@@ -1,0 +1,41 @@
+<form onsubmit="submit()" #form=ngForm>
+
+    <div class="form-group">
+        <label for="modulename">Module Name</label>
+        <input class="form-control" type="text" #name='ngModel' [(ngModel)]="mongo.name" 
+        placeholder="Enter module name" 
+        name="modulename" required>
+    </div>
+
+   
+
+    <div class="form-group">
+        <label for="workstatus">Status</label>
+        <select class="form-control" required [(ngModel)]="mongo.status" #status="ngModel" name="workstatus">
+            <option value="">Select status </option>
+            <option value="In Progress">In Progress </option>
+            <option value="Completed">Completed</option>
+            <option value="Sever Queue">Sever Queue</option>
+            <option value="Ready for QA">Ready for QA</option>
+            <option value="RoadBlocked">RoadBlocked</option>
+        </select>
+
+
+
+
+        <!--<input class="form-control" type="text" #status="ngModel"   [(ngModel)]="mongo.status"
+            placeholder="Enter current status" name="workstatus" required>-->
+    </div>
+
+
+    <div class="form-group">
+        <label for="comments">Comments</label>
+        <input class="form-control" type="text" #comments="ngModel" [(ngModel)]="mongo.comments" 
+        placeholder="Enter comments" required name="comments" required>
+    </div>
+
+</form>
+
+<!--[(ngModel)]="mongo.name"  
+[(ngModel)]="mongo.status"
+[(ngModel)]="mongo.comments" -->

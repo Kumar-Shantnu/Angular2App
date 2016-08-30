@@ -1,0 +1,54 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var details_service_1 = require('./details.service');
+var CRUDComponent = (function () {
+    //no need
+    function CRUDComponent(detailsService) {
+        this.detailsService = detailsService;
+        this.mode = 'Observable';
+        this.mongo = {
+            name: '',
+            status: '',
+            comments: ''
+        };
+    }
+    //no need
+    CRUDComponent.prototype.ngOnInit = function () {
+    };
+    CRUDComponent.prototype.saveDetails = function (modal) {
+        var _this = this;
+        this.detailsService.addDetails(this.mongo).then(function (data) {
+            console.log("data " + data);
+            _this.mongo = {
+                name: '',
+                status: '',
+                comments: ''
+            };
+            _this.inputModel.push(data);
+            modal.close();
+        }, function (error) { return _this.errorMessage = error; });
+    };
+    __decorate([
+        core_1.Input('value'), 
+        __metadata('design:type', Array)
+    ], CRUDComponent.prototype, "inputModel", void 0);
+    CRUDComponent = __decorate([
+        core_1.Component({
+            selector: 'crud-details',
+            templateUrl: 'app/crud-details.component.html',
+        }), 
+        __metadata('design:paramtypes', [details_service_1.DetailsService])
+    ], CRUDComponent);
+    return CRUDComponent;
+}());
+exports.CRUDComponent = CRUDComponent;
+//# sourceMappingURL=crud-details.component.js.map

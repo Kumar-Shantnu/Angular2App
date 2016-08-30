@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="panel panel-default" *ngFor="let data of mongoModel ; let i = index">
+        <div class="panel-body">
+            <div>
+                <label for="name">Module Name :</label>
+                <label>{{data.name}}</label>
+            </div>
+            <div>
+                <label for="status">Status :</label>
+                <label>{{data.status}}</label>
+            </div>
+            <div>
+                <label for="comments">Comments :</label>
+                <label>{{data.comments}}</label>
+            </div>
+            <div>
+                <button class="btn btn-default">Edit</button>
+                <button class="btn btn-default">Delete</button>
+
+            </div>
+
+        </div>
+    </div>
+    <button class="btn btn-default" type="button" (click)="modal.open()">Add status</button>
+
+
+
+
+
+    <modal #modal>
+        <modal-header [show-close]="true">
+            <h4 class="modal-title">Details</h4>
+        </modal-header>
+        <modal-body>
+
+            <crud-details #cruddetails [value] = "mongoModel"></crud-details>
+
+
+        </modal-body>
+        <modal-footer>
+            
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button"  class="btn btn-primary"  (click)="cruddetails.saveDetails(modal)">Save</button>
+        </modal-footer>
+    </modal>
+
+
+</div>
