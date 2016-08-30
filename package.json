@@ -2,12 +2,14 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"node ./bin/www\" ",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "develop": "concurrently \"tsc -w -p ./server\" \"tsc -w -p ./client\" \"nodemon ./server/bin/www\" ",
+    "forever": "tsc -p ./server && forever start ./server/bin/www --watch",
+    "twc:client:w": "tsc -w -p ./client",
+    "twc:server:w": "tsc -w -p ./server",
+    "typings": "typings install",
+    "bundle": "node tools/builder.js",
+    "bundle:prod": "node tools/builder.js --prod",
+    "postinstall": "typings install && tsc -p ./server"
   },
   "license": "ISC",
   "dependencies": {
