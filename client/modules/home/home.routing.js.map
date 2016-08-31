@@ -1,1 +1,0 @@
-{"version":3,"file":"home.routing.js","sourceRoot":"/Applications/MAMP/htdocs/angular2-express-starter/client/client/","sources":["modules/home/home.routing.ts"],"names":[],"mappings":";;;;QAIa,MAAM,EAIN,OAAO;;;;;;;;;;YAJP,oBAAA,MAAM,GAAW;gBAC1B,EAAE,IAAI,EAAE,MAAM,EAAE,SAAS,EAAE,8BAAa,EAAE;aAC7C,CAAA,CAAC;YAEW,qBAAA,OAAO,GAAG,qBAAY,CAAC,QAAQ,CAAC,MAAM,CAAC,CAAA,CAAC"}
